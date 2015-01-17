@@ -12,5 +12,7 @@ BisectionSearch.py
 
 Newton_Raphson.py
 
+------->This is the most elegant method for finding roots in the cheapest computational cost.
+
 
 
