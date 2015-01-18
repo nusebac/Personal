@@ -5,7 +5,7 @@
 from __future__ import division
 import pandas as pd
 
-# Here I have given static file path and format.With panda we can manipulate that easily according to requirement
+# Here I have given static file path and format.With panda we can manipulate taht according to requirement
 
 data = pd.ExcelFile("C:/Users/HP/Desktop/Book1.xlsx")
 newdata=data.parse('Sheet1')
@@ -19,6 +19,7 @@ y2sum=0
 mx=0
 b=0
 N=0
+result=0
 input_feature = newdata[newdata.columns[0]]
 target_var = newdata[newdata.columns[1]]
 
@@ -47,7 +48,8 @@ for vals1 in target_var:
 N =len(newdata)
 
 # The best form for our line is slope-intercept form, which looks like y = mx + b. Therefore, it is only necessary to compute m and b to determine the best fit line.Those values can be computed by the following equations
-mx =((N*xysum)-(xsum*ysum))/((N*x2sum)-(xsum*xsum))
+mx =((N*xysum)-(xsum*ysum))/((N*x2sum) -(xsum*xsum))
+
 b =((x2sum*ysum)-(xsum*xysum))/((N*x2sum) -(xsum*xsum))
 
 print "Equation of the line is y = %sx + %s"%(str(mx),str(b))
@@ -55,7 +57,15 @@ print "Equation of the line is y = %sx + %s"%(str(mx),str(b))
  
 # The value of R-square to understand model fit.R is the correlation coefficient for univariate regression.
 
-Rsquare = ((N*xysum - xsum*ysum)**2)/((N*x2sum - xsum*xsum)*(N*y2sum - ysum*ysum))
+Rsquare =((N*xysum - xsum*ysum)**2)/((N*x2sum - xsum*xsum)*(N*y2sum - ysum*ysum))
+
 print "The value of Rsquare is : %s"%(str(Rsquare))
 
-
+# Measuring accuracy using Standard Error of the Estimate
+for i in range(len(newdata)):
+    predY = mx*newdata.ix[i][0] + b
+    actY = newdata.ix[i][1]
+    diff = (actY - predY)**2
+    result += diff
+    standarderror = (result/N)**(1/2)
+print "The standard error of the model is %s"%(str(standarderror))
