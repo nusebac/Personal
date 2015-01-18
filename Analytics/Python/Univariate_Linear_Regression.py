@@ -2,7 +2,7 @@
 """
 @author: Arka
 """
-
+from __future__ import division
 import pandas as pd
 
 # Here I have given static file path and format.With panda we can manipulate that easily according to requirement
