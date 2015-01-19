@@ -43,3 +43,7 @@ for i in range(len(newdata.columns)):
     stdev = (variance)**(1/2)
     print "The standard deviation for %s is : %s"%(str(newdata.columns[i]),str(stdev))
     print "----------------------------------END %s-------------------------------------------"%(str(newdata.columns[i]))
+    
+    
+    
+    
