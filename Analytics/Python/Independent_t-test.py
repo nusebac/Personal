@@ -29,7 +29,7 @@ for i in range(len(newfile)):
     mean_y = ((sum(newfile[newfile.columns[1]]))/N_y)
    
 # Formula to calculate the t-ratio.
-t_ratio = (mean_x - mean_y)/((sum_square_x - ((sum_x)**2/N_x))+(sum_square_y - ((sum_y)**2/N_y))/(N_x + N_y+ 2)*(1/N_x + 1/N_y))**(1/2)                
+t_ratio=(mean_x - mean_y)/((sum_square_x-((sum_x)**2/N_x))+(sum_square_y-((sum_y)**2/N_y))/(N_x+N_y+2)*(1/N_x+1/N_y))**(1/2)
 print "The value of T- Ratio is :  %s"%(str(t_ratio))
 df = (N_x-1) + (N_y - 1)
 print "The degree of freedom is :  %s "%(str(df))
