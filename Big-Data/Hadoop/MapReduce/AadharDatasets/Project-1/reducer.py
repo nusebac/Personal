@@ -12,7 +12,10 @@ def reducer():
             print "{0}\t{1}".format(get_key,total_adhaar)
             total_adhaar =0
         get_key = new_key
-        total_adhaar += float(adhaar_count)
+        try:
+        	total_adhaar += float(adhaar_count)
+        except:
+        	continue
     if get_key !=None:
         print "{0}\t{1}".format(get_key,total_adhaar)
         
